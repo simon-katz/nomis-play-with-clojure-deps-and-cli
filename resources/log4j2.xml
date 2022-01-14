@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO"
+               monitorInterval="5">
+  <Appenders>
+
+    <Console name="console-log"
+             target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>%d{ISO8601} [%t] %-5p [%c{1.}] - %m - [%c]%n</Pattern>
+      </PatternLayout>
+    </Console>
+
+    <RollingFile name="all-log"
+                 fileName="logs/all.log"
+                 filePattern="logs/all.%d{yyyy-MM-dd}.%03i.log.gz">
+      <PatternLayout>
+        <Pattern>%d{ISO8601} [%t] %-5p [%c{1.}] - %m - [%c]%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1"/>
+      </Policies>
+    </RollingFile>
+
+    <RollingFile name="our-app-log"
+                 fileName="logs/our-app.log"
+                 filePattern="logs/our-app.%d{yyyy-MM-dd}.%03i.log.gz">
+      <PatternLayout>
+        <Pattern>%d{ISO8601} [%t] %-5p [%c{1.}] - %m - [%c]%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1"/>
+      </Policies>
+    </RollingFile>
+
+  </Appenders>
+
+  <Loggers>
+
+    <Logger name="user"
+            level="trace"
+            additivity="false">
+      <AppenderRef ref="our-app-log"/>
+      <AppenderRef ref="all-log"/>
+      <AppenderRef ref="console-log"/>
+    </Logger>
+
+    <Logger name="dev"
+            level="trace"
+            additivity="false">
+      <AppenderRef ref="our-app-log"/>
+      <AppenderRef ref="all-log"/>
+      <AppenderRef ref="console-log"/>
+    </Logger>
+
+    <Logger name="our-code"
+            level="trace"
+            additivity="false">
+      <AppenderRef ref="our-app-log"/>
+      <AppenderRef ref="all-log"/>
+      <AppenderRef ref="console-log"/>
+    </Logger>
+
+    <Root level="info">
+      <AppenderRef ref="all-log"/>
+      <AppenderRef ref="console-log"/>
+    </Root>
+
+  </Loggers>
+</Configuration>

@@ -1,0 +1,29 @@
+{:paths
+ ["src" "test" "resources"]
+
+ :deps
+ {
+  ;; Logging setup
+  ;; See https://clojurians-log.clojureverse.org/beginners/2021-03-21, where
+  ;; Sean Cornfield describes his setup for log4j 2 with
+  ;; org.clojure/tools.logging.
+  ;; Basics:
+  org.clojure/tools.logging                 {:mvn/version "1.2.4"}
+  org.apache.logging.log4j/log4j-api        {:mvn/version "2.17.1"}
+  org.apache.logging.log4j/log4j-core       {:mvn/version "2.17.1"}
+  ;; Bridges into log4j 2:
+  ;; - TODO: Grok these bridges into log4j 2.
+  org.apache.logging.log4j/log4j-1.2-api    {:mvn/version "2.17.1"}
+  org.apache.logging.log4j/log4j-jcl        {:mvn/version "2.17.1"}
+  org.apache.logging.log4j/log4j-jul        {:mvn/version "2.17.1"}
+  org.apache.logging.log4j/log4j-slf4j-impl {:mvn/version "2.17.1"}}
+
+ :aliases
+ {:dev {:jvm-opts    ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]
+        :extra-paths ["dev"]
+        :main-opts   [;; TODO: Is there a better way to specify the
+                      ;;       initial namespace?
+                      "-e" "(do (require 'dev) (in-ns 'dev))" "-r"]}}
+
+ :jvm-opts
+ ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]}

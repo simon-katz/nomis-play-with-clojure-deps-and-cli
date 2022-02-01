@@ -20,10 +20,7 @@
 
  :aliases
  {:dev {:jvm-opts    ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]
-        :extra-paths ["dev"]
-        :main-opts   [;; TODO: Is there a better way to specify the
-                      ;;       initial namespace?
-                      "-e" "(do (require 'dev) (in-ns 'dev))" "-r"]}}
+        :extra-paths ["dev"]}}
 
  :jvm-opts
  ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]}

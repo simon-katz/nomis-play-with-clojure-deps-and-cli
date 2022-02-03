@@ -2,7 +2,7 @@
  ["src" "test" "resources"]
 
  :deps
- {
+ {org.clojure/clojure {:mvn/version "1.10.3"}
   ;; Logging setup
   ;; See https://clojurians-log.clojureverse.org/beginners/2021-03-21, where
   ;; Sean Cornfield describes his setup for log4j 2 with

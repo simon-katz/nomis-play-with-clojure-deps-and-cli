@@ -20,7 +20,16 @@
 
  :aliases
  {:project/dev {:jvm-opts    ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]
-                :extra-paths ["dev"]}}
+                :extra-paths ["dev"]}
+  :my-fn-1
+  {:exec-fn our-code.temp/some-fun-1
+   :exec-args {;; :my     {:data 123}
+               ;; :config 456
+               }}
+  :my-fn-2
+  {:exec-fn our-code.temp/some-fun-2
+   :exec-args {;; :this-is :my-fn-2
+               }}}
 
  :jvm-opts
  ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/log4j2-factory"]}

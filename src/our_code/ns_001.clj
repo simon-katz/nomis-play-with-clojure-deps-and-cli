@@ -1,4 +1,4 @@
-(ns our-code.temp)
+(ns our-code.ns-001)
 
 (defn foo-1 [a b]
   (or a b))

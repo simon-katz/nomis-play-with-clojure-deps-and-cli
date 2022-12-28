@@ -1,7 +1,7 @@
-(ns our-code.temp-test
+(ns our-code.ns-001-test
   (:require
    [clojure.test :refer [deftest is]]
-   [our-code.temp :as sut]))
+   [our-code.ns-001 :as sut]))
 
 (deftest de-morgan-test
   (doseq [x [false true]

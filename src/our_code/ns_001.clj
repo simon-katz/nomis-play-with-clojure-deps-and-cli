@@ -1,5 +1,7 @@
 (ns our-code.ns-001)
 
+(println "\u001b[36m==== Reloading our-code.ns-001\u001b[0m")
+
 (defn foo-1 [a b]
   (or a b))
 

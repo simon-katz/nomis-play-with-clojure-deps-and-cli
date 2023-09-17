@@ -1,2 +1,2 @@
-((clojure-mode . ((cider-clojure-cli-aliases . "project/dev:user/dev") ; c.f. the `clj-dev.sh` script.
+((clojure-mode . ((cider-clojure-cli-aliases . ":project/dev:user/dev") ; c.f. the `clj-dev.sh` script.
                   )))
